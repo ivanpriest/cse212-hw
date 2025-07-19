@@ -6,14 +6,19 @@ public static class Arrays
     /// integer greater than 0.
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
+    
     public static double[] MultiplesOf(double number, int length)
     {
-        // TODO Problem 1 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
-
-        return []; // replace this return statement with your own
+        // Step 1: Creating the list for the multiples
+        List<double> MultiplesList = new List<double>();
+        // Step 2: Using the for loop to for the iteration
+        for (int i = 1; i < length + 1; ++i)
+        {
+            MultiplesList.Add(i * number);
+        }
+        ;
+        // Step 3: return the Array
+        return MultiplesList.ToArray();
     }
 
     /// <summary>
@@ -25,9 +30,20 @@ public static class Arrays
     /// </summary>
     public static void RotateListRight(List<int> data, int amount)
     {
-        // TODO Problem 2 Start
-        // Remember: Using comments in your program, write down your process for solving this problem
-        // step by step before you write the code. The plan should be clear enough that it could
-        // be implemented by another person.
+    // Step 1: Calculate the split index
+    int splitIndex = data.Count - amount;
+
+    // Step 2: Get the two slices of the list
+    List<int> tail = data.GetRange(splitIndex, amount);
+    List<int> front = data.GetRange(0, splitIndex);
+
+    // Step 3: Combine the two parts
+    List<int> rotated = new List<int>();
+    rotated.AddRange(tail);
+    rotated.AddRange(front);
+
+    // Step 4: Print the entire list as one string
+    Console.WriteLine($"Rotated List: [{string.Join(", ", rotated)}]");
     }
+
 }
